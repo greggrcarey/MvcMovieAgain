@@ -23,7 +23,8 @@ namespace MvcMovie.Models
                         Title = "Better Off Dead...",
                         ReleaseDate = DateTime.Parse("1985-10-11"),
                         Genre = "Comedy",
-                        Price = 7.99M
+                        Price = 7.99M,
+                        Rating = "PG"
                     },
 
                     new Movie
@@ -31,7 +32,8 @@ namespace MvcMovie.Models
                         Title = "Nothing But Trouble ",
                         ReleaseDate = DateTime.Parse("1991-2-15"),
                         Genre = "Comedy",
-                        Price = 8.99M
+                        Price = 8.99M,
+                        Rating = "PG-13"
                     },
 
                     new Movie
@@ -39,7 +41,8 @@ namespace MvcMovie.Models
                         Title = "Bloodbath at the House of Death",
                         ReleaseDate = DateTime.Parse("1984-3-30"),
                         Genre = "Horror",
-                        Price = 9.99M
+                        Price = 9.99M,
+                        Rating = "R"
                     },
 
                     new Movie
@@ -47,7 +50,8 @@ namespace MvcMovie.Models
                         Title = "Hard To Kill",
                         ReleaseDate = DateTime.Parse("1990-2-9"),
                         Genre = "Action",
-                        Price = 3.99M
+                        Price = 3.99M,
+                        Rating = "R"
                     }
 
                     );

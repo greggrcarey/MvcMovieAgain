@@ -16,27 +16,26 @@ namespace MvcMovie
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration, IWebHostEnvironment env)
+        public Startup(IConfiguration configuration, IWebHostEnvironment hostEnv)
         {
-            Environment = env;
+            HostEnvironment = hostEnv;
             Configuration = configuration;
         }
 
         public IConfiguration Configuration { get; }
-        public IWebHostEnvironment Environment {get;}
+        public IWebHostEnvironment HostEnvironment {get;}
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            if(Environment.IsDevelopment()){
+            if(Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") == "Production"){
                 services.AddDbContext<MvcMovieContext>(options => 
-                options.UseSqlite(
-                    Configuration.GetConnectionString("MvcMovieContext")));
+                options.UseSqlServer(
+                    Configuration.GetConnectionString("MyDbConnection")));
             }
             else{
                 services.AddDbContext<MvcMovieContext>(options => 
-                options.UseSqlServer(
-                    Configuration.GetConnectionString("MvcMovieContext")));
+                options.UseSqlite("Data Source=MvcMovie.db"));
             }
 
             services.AddControllersWithViews();
